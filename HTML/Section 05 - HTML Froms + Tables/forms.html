@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+
+<body>
+    <h1>
+        Forms Demo
+    </h1>
+    <!-- file:///tacos?username=test&password= -->
+    <!-- file:///tacos?username=test&password=test&date=2024-01-03 -->
+
+    <button type="button">Outside the FORM won't submit automatically</button>
+
+
+    <!-- action specifies WHERE form data is going === HTTP req-->
+    <form action="/tacos">
+        <p>
+            <!-- id = html id; type = input type; placeholder = ?; name = what is sent to server -->
+            <label for="username">Enter username</label>
+            <input id="username" type="text" placeholder="username" name="username">
+        </p>
+        <p>
+            <label for="password">
+                Enter password
+                <input type="password" placeholder="password" id="password" name="password">
+            </label>
+        </p>
+        <p>
+            <label for="color">Enter a color:</label>
+            <input type="color">
+        </p>
+        <p>
+            <label>
+                <input type="date" placeholder="Enter a date" name="date">
+            </label>
+        </p>
+        <!-- this button doesn't submit b/c of the type attritube -->
+        <button type="button">Button that won't submit</button>
+        <button>Submit</button>
+    </form>
+
+    <hr>
+    
+    <h2>Hijacking reddit</h2>
+    
+    <!-- testing sending to actual server -->
+    <form action="https://www.reddit.com/search">
+        <label for="search">Enter search key</label>
+        <!-- q must match the queryy -->
+        <input id="search" type="text" placeholder="enter" name="q">
+        <button>Search reddit!</button>
+    </form>
+
+    <hr>
+
+    <h2>Hijacking google</h2>
+    <!-- testing sending to google -->
+    <form action="https://www.google.com/search">
+        <label for="gSearch">Enter a google search</label>
+        <input type="text" name="q" id="gSearch">
+        <button>Search google</button>
+    </form>
+
+    <hr>
+    <h2>Hijacking YT</h2>
+    <form action="https://www.youtube.com/results?search_query">
+        <label for="ySearch">Enter a YT search</label>
+        <input type="text" id="ySearch" name="search_query">
+        <button>Search YT</button>
+    </form>
+
+    <h1>CheckBoxes, Radio Buttons, Selects</h1>
+    <h2>CheckBoxes</h2>
+    <form action="/birds">
+        <input type="checkbox" name="agree_tos" id="agree">
+        <label for="agree">Agree?</label>
+    </form>
+    <h2>Radio Buttons</h2>
+    <form action="/birds">
+        <input type="radio" name="options" id="options" value="huey">
+        <label for="options">huey</label>
+        <input type="radio" name="options" id="options" value="bob">
+        <label for="options">bob</label>
+        <input type="radio" name="options" id="options" value="duey">
+        <label for="options">duey</label>
+        <button>Submit</button>
+    </form>
+    <h2>Selects</h2>
+    <form action="/birds">
+        <label for="meal">Select Entree</label>
+        <select name="meal" id="meal">
+            <option value="food1">food1</option>
+            <option value="food2" selected>food2</option>
+            <option value="food3">food3</option>
+        </select>
+        <button>Submit</button>
+    </form>
+
+    <form action="/birds">
+        <label for="textArea">Any Special texts?</label>
+        <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
+        <button>Submit</button>
+    </form>
+
+    <h1>Client-side Validation!</h1>
+    <form action="/dummy">
+        <label for="firstname">Enter First Name</label>
+        <input type="text" name="firstname" id="firstname" required>
+        <p>
+            <label for="username">Enter a username</label>
+            <input type="text" id="username" name="username" minlength="5" maxlength="20" required>
+        </p>
+
+        <p>
+            <label for=""email>Enter email</label>
+            <input type="email" id="email" name="email" required>
+        </p>
+        <p>
+            <input type="url" name="url" id="url">
+        </p>
+        <button>Submit</button>
+    </form>
+</body>
+
+</html>
