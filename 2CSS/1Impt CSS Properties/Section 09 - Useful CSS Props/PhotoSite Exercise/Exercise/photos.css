@@ -1,10 +1,10 @@
 img {
     width: 30%;
-    /* margin: 1.6666666%; */
     margin: calc(10%/6);
 }
 
 nav {
+    /* reffed in head */
     font-family: 'Raleway', sans-serif;
     font-size: 1.5em;
     text-transform: uppercase;
@@ -13,7 +13,3 @@ nav {
     margin-left: calc(10%/6);
     padding: 1.2em 0;
 }
-
-/* 30 + 30 + 30
-
-10% */
