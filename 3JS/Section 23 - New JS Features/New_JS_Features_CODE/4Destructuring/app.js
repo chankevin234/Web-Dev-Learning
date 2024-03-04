@@ -7,6 +7,12 @@ const scores = [929321, 899341, 888336, 772739, 543671, 243567, 111934];
 // const secondHighScore = scores[1];
 
 const [gold, silver, bronze, ...everyoneElse] = scores;
+/**
+ * gold = 929321
+ * silver = 899341
+ * bronze = 888336
+ * ...everyoneElse = remaining array elements
+ */
 
 // ===================
 // OBJECT DESTRUCTURING
@@ -35,9 +41,25 @@ const user2 = {
 // const firstName = user.firstName;
 // const lastName = user.lastName;
 // const email = user.email;
-const { email, firstName, lastName, city, bio } = user;
 
-// const { born: birthYear, died: deathYear = 'N/A' } = user;
+// THIS CREATES 5 DIFF VARIABLES THAT STORE THE PROPS OF THE OBJECT 
+const { email, firstName, lastName, city, bio } = user;
+/**
+ * email = user.email
+ * firstname = user.firstName
+ * lastname = user.lastname
+ */
+
+const { born: birthYear, died: deathYear = 'N/A' } = user;
+/**
+ * This allows one to name the new variable that stores the object's property
+ * ex.
+ * birthYear = user.born
+ * deathYear = user.died
+ * 
+ * You can also include a default value for the new var
+ * ex. deathYear = 'N/A'
+ */
 
 // const { city, state, died = 'N/A' } = user2;
 
@@ -53,7 +75,12 @@ const { email, firstName, lastName, city, bio } = user;
 //     return `${firstName} ${lastName}`
 // }
 
-
+/**
+ * This method of PARAM destructuring allows you to immediately create vars for the object's props and 
+ * only take the desired ones
+ * ex. { firstName, lastName } --> same as --> object.firstName, object.lastName
+ * 
+ */
 function fullName({ firstName, lastName }) {
     return `${firstName} ${lastName}`
 }
