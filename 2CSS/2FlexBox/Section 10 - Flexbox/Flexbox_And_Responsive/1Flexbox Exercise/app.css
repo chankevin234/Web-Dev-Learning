@@ -1,0 +1,66 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+#container {
+    background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    /* flexbox elements */
+    display: flex;
+    flex-direction: row;
+    /* jsutify content- will depend on flex-direction */
+    justify-content: center;
+
+    /* flex wrap - do elements wrap on the axis */
+    flex-wrap: wrap;
+
+    /* align items */
+    align-items: center;
+    /* align content */
+    align-content: flex-start;
+
+}
+
+#container div {
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    font-size: 3em;
+
+    /* flex basis overrides width/height
+    it determines initial size of an element */
+    flex-basis: 200px;
+}
+
+div:nth-of-type(1) {
+    /* algin self applies to individual elements */
+    align-self: flex-end;
+    /* applied to individual element, takes up available spaces */
+    flex-grow: 1;
+    flex-shrink: 2;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 500px;
+    display: flex;
+}
+
+main .sidebar {
+    background-color: magenta;
+    border: 2px solid white;
+    /* Three values: flex-grow | flex-shrink | flex-basis */
+    flex: 1 2 300px;
+}
+
+main .maincontent {
+    background-color: green;
+    flex: 2 1 600px;
+}
