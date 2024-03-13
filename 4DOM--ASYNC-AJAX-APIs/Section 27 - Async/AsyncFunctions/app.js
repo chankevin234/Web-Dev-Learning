@@ -1,7 +1,7 @@
 // async function hello() {
 // }
 
-
+// EXAMPLE 1 =========================================================
 const sing = async () => {
     throw "OH NO, PROBLEM!"
     return 'LA LA LA LA'
@@ -18,10 +18,15 @@ sing()
 
 
 
-
+// EXAMPLE 2 =========================================================
 const login = async (username, password) => {
+    // error check 1
     if (!username || !password) throw 'Missing Credentials'
-    if (password === 'corgifeetarecute') return 'WELCOME!'
+    // success check
+    if (password === 'corgifeetarecute') { 
+        return 'WELCOME!'
+    }
+    // error check 2
     throw 'Invalid Password'
 }
 
@@ -36,9 +41,7 @@ login('todd', 'corgifeetarecute')
     })
 
 
-
-
-
+// EXAMPLE 3 - AWAIT =================================================
 
 const delayedColorChange = (color, delay) => {
     return new Promise((resolve, reject) => {
@@ -57,7 +60,6 @@ const delayedColorChange = (color, delay) => {
 //     .then(() => delayedColorChange('indigo', 1000))
 //     .then(() => delayedColorChange('violet', 1000))
 
-
 async function rainbow() {
     await delayedColorChange('red', 1000)
     await delayedColorChange('orange', 1000)
@@ -69,15 +71,15 @@ async function rainbow() {
     return "ALL DONE!"
 }
 
-// rainbow().then(() => console.log("END OF RAINBOW!"))
-
-
+// This is equivalent to --> rainbow().then(() => console.log("END OF RAINBOW!"))
 async function printRainbow() {
     await rainbow();
     console.log("END OF RAINBOW!")
 }
 
 printRainbow();
+
+// EXAMPLE 4 - AWAIT & HANDLING REJECTION =================================================
 
 const fakeRequest = (url) => {
     return new Promise((resolve, reject) => {
@@ -91,7 +93,6 @@ const fakeRequest = (url) => {
         }, delay)
     })
 }
-
 
 async function makeTwoRequests() {
     try {
