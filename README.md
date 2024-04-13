@@ -9,6 +9,13 @@ An in-depth paragraph about your project and overview of use.
 Things I've learned!
 1. Module 1:
 
+Small Projects per Section:
+1. 2CSS - Sec 13 - DND Campaign Fan Page
+2. 4DOM - Sec 24 - Pokemon Generator
+3. 4DOM - Sec 26 - Score Keeper
+4. 4DOM - Sec 28 - TV Show Search App
+5. 5Backend - Sec 02Node - Language Guesser 
+
 ## Getting Started
 
 ### Dependencies
