@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random</title>
 </head>
+
 <body>
-    <h1>Option 1 to display EJS: Your random number is: <%= Math.floor(Math.random() * 10) + 1%></h1>
+    <h1>How to display EJS:</h1>
+    <h2>Option 1 (embedded): Your random number is: <%= Math.floor(Math.random() * 10) + 1%>
+    </h2>
+    <h2>Option 2 (passed in): Your random number is: <%= num %>
+    </h2>
+    <h2>Conditionals:</h2>
+    <p>
+        <%= num % 2 === 0 ? 'even' : 'odd' %>
+    </p>
 </body>
+
 </html>
