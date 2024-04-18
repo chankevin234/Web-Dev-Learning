@@ -1,9 +1,9 @@
 const path = require('path');
 const express = require('express');
 
-// const methodOverride = require('method-override')
-// const { v4: uuid } = require('uuid'); //For generating ID's
-const { comments } = require('./data/commentDB'); // fake db
+const methodOverride = require('method-override')
+const { v4: uuid } = require('uuid'); //For generating ID's
+let { comments } = require('./data/commentDB'); // fake db
 
 const app = express();
 
@@ -12,7 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // To 'fake' put/patch/delete requests:
-// app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
+
 // Views folder and EJS setup:
 app.set('views', path.join(__dirname, 'views')); // absolute path
 app.set('view engine', 'ejs'); // use /views dir (w/ .ejs)
@@ -37,64 +38,47 @@ app.post('/comments', (req, res) => {
     console.log('Posting a new comment!');
     // take in a username & comment from req.body
     const { username, comment } = req.body;
-    comments.push({ username, comment /*, id: uuid()*/ }); // POST new obj to the fakeDB arr
+    comments.push({ username, comment, id: uuid() }); // POST new obj to the fakeDB arr
     res.redirect('/comments'); // send back to the comments page (shows changes!)
 });
 
-// // *******************************************
-// // SHOW - details about one particular comment
-// // *******************************************
-// app.get('/comments/:id', (req, res) => {
-//     const { id } = req.params;
-//     const comment = comments.find(c => c.id === id);
-//     res.render('comments/show', { comment })
-// })
-// // *******************************************
-// // EDIT - renders a form to edit a comment
-// // *******************************************
-// app.get('/comments/:id/edit', (req, res) => {
-//     const { id } = req.params;
-//     const comment = comments.find(c => c.id === id);
-//     res.render('comments/edit', { comment })
-// })
-// // *******************************************
-// // UPDATE - updates a particular comment
-// // *******************************************
-// app.patch('/comments/:id', (req, res) => {
-//     const { id } = req.params;
-//     const foundComment = comments.find(c => c.id === id);
+// *******************************************
+// SHOW - details about one particular comment
+app.get('/comments/:id', (req, res) => {
+    const { id } = req.params; // take in 'id' from req.params (as string)
+    const comment = comments.find(c => c.id === id); // look through array
+    res.render('comments/show', { comment }) // render the new comment out in show.ejs
+});
 
-//     //get new text from req.body
-//     const newCommentText = req.body.comment;
-//     //update the comment with the data from req.body:
-//     foundComment.comment = newCommentText;
-//     //redirect back to index (or wherever you want)
-//     res.redirect('/comments')
-// })
+// *******************************************
+// EDIT - renders a form to edit a comment
+app.get('/comments/:id/edit', (req, res) => {
+    const { id } = req.params;
+    const comment = comments.find(c => c.id === id);
+    res.render('comments/edit', { comment })
+});
 
-// // *******************************************
-// // DELETE/DESTROY- removes a single comment
-// // *******************************************
-// app.delete('/comments/:id', (req, res) => {
-//     const { id } = req.params;
-//     comments = comments.filter(c => c.id !== id);
-//     res.redirect('/comments');
-// })
+// *******************************************
+// UPDATE - updates a particular comment
+app.patch('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    //get new text from req.body
+    const newCommentText = req.body.comment;
 
-/**
- * /TACOS REST REQUESTS TESTS 
+    const foundComment = comments.find(c => c.id === id); 
+    //update the comment with the data from req.body:
+    foundComment.comment = newCommentText;
+    res.redirect('/comments'); //redirect back to index (or wherever you want)
+});
 
-app.get('/tacos', (req, res) => {
-    console.log('GET REQUEST FROM HTML');
-    res.send("GET /tacos response")
-})
+// *******************************************
+// DELETE/DESTROY- removes a single comment
+app.delete('/comments/:id', (req, res) => {
+    const { id } = req.params;
+    comments = comments.filter(c => c.id !== id);
+    res.redirect('/comments');
+});
 
-app.post('/tacos', (req, res) => {
-    console.log('POST REQUEST FROM HTML');
-    const { meat, qty } = req.body; //DESTRUCTURING
-    res.send(`OK, here are your ${qty} ${meat} tacos`)
-})
- */
 app.get('/', (req, res) => {
     res.render('comments/root');
 })
