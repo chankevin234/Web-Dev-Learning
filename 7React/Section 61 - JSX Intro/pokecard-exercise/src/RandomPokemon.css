@@ -1,0 +1,20 @@
+/* Style RandomPokemon component such that
+    Parent element has a border
+    img is 150 px
+    h1 is blue
+ */
+
+.RandomPokemon {
+    border: 1px solid black;
+    /* border-radius: 10px;
+    margin-bottom: 20px; */
+    width: 300px;
+}
+
+.RandomPokemon img {
+    size: 150px;
+}
+
+.RandomPokemon h1 {
+    color: blue;
+}

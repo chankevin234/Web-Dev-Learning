@@ -1,0 +1,10 @@
+.MultiDice {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.MultiDice h1 {
+    font-weight: 1000;
+    color: green;
+}
