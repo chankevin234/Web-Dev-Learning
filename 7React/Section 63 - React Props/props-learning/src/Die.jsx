@@ -1,7 +1,7 @@
 import React from "react";
 
-function Die(props) {
-    const diceSize = props.numSides;
+function Die({ numSides = 6 }) { // set default value to the destructured value in props obj
+    const diceSize = numSides;
     const roll = Math.floor(Math.random() * diceSize) + 1;
     return (
         <p>
