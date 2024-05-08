@@ -1,33 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import ShoppingList from './ShoppingList';
+
+// fake DB seed data
+const data = [
+  {
+    id: 1, item: 'eggs', qty: 12, completed: false
+  },
+  {
+    id: 2, item: 'milk', qty: 1, completed: true
+  },
+  {
+    id: 3, item: 'chicken', qty: 4, completed: false
+  },
+  {
+    id: 4, item: 'carrots', qty: 6, completed: true
+  },
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <ShoppingList items={data} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
