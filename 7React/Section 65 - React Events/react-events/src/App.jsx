@@ -1,11 +1,15 @@
 import Clicker from "./Clicker";
+import OtherEvents from "./OtherEvents";
+import Form from "./Form";
+
 import "./App.css";
 
 function App() {
   return (
     <div>
-      <Clicker />
-      <Clicker />
+      <Form />
+      <Clicker message="Hi!" buttonText="Please Click Me!"/>
+      <OtherEvents />
     </div>
   );
 }

@@ -1,23 +1,42 @@
-function handleClick() {
-  console.log("CLICKED THE BUTTON!!!");
-}
+// function handleClick() {
+//   console.log("CLICKED THE BUTTON!!!");
+// }
 
-function handleHover() {
-  console.log("HOVERED!!");
-}
+// function handleHover() {
+//   console.log("HOVERED!!");
+// }
 
-export default function Clicker() {
+// export default function Clicker() {
+//   return (
+//     <div>
+//       <p onMouseOver={handleHover}>Hover Over Me</p>
+//       <button onClick={handleClick}>Click</button>
+//       <button
+//         onClick={() =>
+//           console.log("CLICKED THE INLINE ARROW FUNCTION VERSION!")
+//         }
+//       >
+//         Inline Function (CLICK ME!)
+//       </button>
+//     </div>
+//   );
+// }
+
+// eslint-disable-next-line react/prop-types
+export default function Clicker({message, buttonText}) {
+  const handleClick = () => {
+    console.log(message);
+    alert(message)
+  }
+
   return (
     <div>
-      <p onMouseOver={handleHover}>Hover Over Me</p>
-      <button onClick={handleClick}>Click</button>
-      <button
-        onClick={() =>
-          console.log("CLICKED THE INLINE ARROW FUNCTION VERSION!")
-        }
+      <p>Click the button</p>
+      <button 
+        onClick={handleClick}
       >
-        Inline Function (CLICK ME!)
-      </button>
+        {buttonText}
+        </button>
     </div>
-  );
+  )
 }
